@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: PodrooshBackend
+  datasource:
+    url: jdbc:postgresql://localhost:5432/podrooshDB?currentSchema=podroosh
+    driver-class-name: org.postgresql.Driver
+    username: xxxx
+    password: xxxxx
+  jpa:
+    defer-datasource-initialization: false
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+        generate_statistics: true
+  flyway:
+    enabled: true
+    schemas: podroosh
