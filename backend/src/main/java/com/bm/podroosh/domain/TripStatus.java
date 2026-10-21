@@ -2,7 +2,7 @@ package com.bm.podroosh.domain;
 
 public enum TripStatus {
     CREATED,
-    DURING,
+    IN_PROGRESS,
     CANCELLED,
     FINISHED
 }

@@ -21,9 +21,12 @@ public class Trip {
     private LocalDate endDate;
 
     @Builder
-    public Trip(String name, String description, TripStatus status) {
+    public Trip(String name, String description, TripStatus status,
+                LocalDate startDate, LocalDate endDate) {
         this.name = name;
         this.description = description;
         this.status = status;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 }

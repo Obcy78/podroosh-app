@@ -19,3 +19,10 @@ spring:
   flyway:
     enabled: true
     schemas: podroosh
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger
+    operations-sorter: alfa
+  packages-to-scan: com.bm.podroosh.controller
