@@ -8,6 +8,6 @@ CREATE TABLE Invitation
     created_at  TIMESTAMPTZ,
     expired_at  TIMESTAMPTZ,
     CONSTRAINT fk_invitation_user FOREIGN KEY (user_id) REFERENCES app_user (id),
-    CONSTRAINT fk_invitation_trip FOREIGN KEY (user_id) REFERENCES trip (id)
+    CONSTRAINT fk_invitation_trip FOREIGN KEY (trip_id) REFERENCES trip (id)
 
 )

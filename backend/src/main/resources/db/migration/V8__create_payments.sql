@@ -6,6 +6,7 @@ CREATE TABLE payment
     name       VARCHAR(125),
     amount     NUMERIC(6, 2) NOT NULL,
     paid_at    TIMESTAMPTZ,
-    CONSTRAINT fk_payment_expense FOREIGN KEY (paid_by_id) REFERENCES trip_member (id)
+    CONSTRAINT fk_payment_expense FOREIGN KEY (expense_id) REFERENCES expense (id),
+    CONSTRAINT fk_payment_member FOREIGN KEY (paid_by_id) REFERENCES trip_member (id)
 
 )
