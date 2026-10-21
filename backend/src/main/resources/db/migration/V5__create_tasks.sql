@@ -1,4 +1,4 @@
-CREATE TABLE Task
+CREATE TABLE task
 (
     id             BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     trip_id        BIGINT NOT NULL,
