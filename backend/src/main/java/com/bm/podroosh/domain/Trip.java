@@ -1,16 +1,14 @@
 package com.bm.podroosh.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Trip {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,4 +20,10 @@ public class Trip {
     private LocalDate startDate;
     private LocalDate endDate;
 
+    @Builder
+    public Trip(String name, String description, TripStatus status) {
+        this.name = name;
+        this.description = description;
+        this.status = status;
+    }
 }
