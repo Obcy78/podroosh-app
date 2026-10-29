@@ -12,9 +12,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Tag(name = "Trip", description = "Operations on Trips")
+@Tag(name = "Trips", description = "Operations on Trips")
 @RestController
-@RequestMapping("/api/v1/trip")
+@RequestMapping("/api/v1/trips")
 @RequiredArgsConstructor
 public class TripController {
     private final TripService tripService;

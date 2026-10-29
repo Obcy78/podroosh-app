@@ -9,6 +9,7 @@ import java.time.LocalDate;
 public record TripRequest(
         @NotBlank
         String name,
+        @NotBlank
         String description,
         @Nullable
         TripStatus status,

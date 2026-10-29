@@ -4,7 +4,7 @@ import com.bm.podroosh.domain.Trip;
 import com.bm.podroosh.domain.TripStatus;
 import com.bm.podroosh.dto.TripRequest;
 import com.bm.podroosh.dto.TripResponse;
-import com.bm.podroosh.exceptions.TripNotFoundExceptionApi;
+import com.bm.podroosh.exceptions.TripNotFoundException;
 import com.bm.podroosh.repository.TripRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -45,13 +45,13 @@ public class TripService {
 
     public TripResponse getTrip(Long tripId) {
         return toResponse(tripRepository.findById(tripId).orElseThrow(() ->
-                new TripNotFoundExceptionApi(tripId)));
+                new TripNotFoundException(tripId)));
     }
 
     @Transactional
     public TripResponse updateTrip(Long tripId, TripRequest request) {
         Trip trip = tripRepository.findById(tripId).orElseThrow(() ->
-                new TripNotFoundExceptionApi(tripId));
+                new TripNotFoundException(tripId));
         updateEntity(request, trip);
         return toResponse(trip);
     }

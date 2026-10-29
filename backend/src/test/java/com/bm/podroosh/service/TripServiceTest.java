@@ -4,7 +4,7 @@ import com.bm.podroosh.domain.Trip;
 import com.bm.podroosh.domain.TripStatus;
 import com.bm.podroosh.dto.TripRequest;
 import com.bm.podroosh.dto.TripResponse;
-import com.bm.podroosh.exceptions.TripNotFoundExceptionApi;
+import com.bm.podroosh.exceptions.TripNotFoundException;
 import com.bm.podroosh.repository.TripRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -129,7 +129,7 @@ class TripServiceTest {
         when(tripRepository.findById(99L)).thenReturn(Optional.empty());
 
         assertThatThrownBy(() -> tripService.getTrip(99L))
-                .isInstanceOf(TripNotFoundExceptionApi.class);
+                .isInstanceOf(TripNotFoundException.class);
         // ewentualnie:
         // .hasMessageContaining("99");
     }
@@ -208,7 +208,7 @@ class TripServiceTest {
         TripRequest request = new TripRequest("X", "Y", null, null, null);
 
         assertThatThrownBy(() -> tripService.updateTrip(123L, request))
-                .isInstanceOf(TripNotFoundExceptionApi.class);
+                .isInstanceOf(TripNotFoundException.class);
 
         verify(tripRepository, never()).save(any());
     }
